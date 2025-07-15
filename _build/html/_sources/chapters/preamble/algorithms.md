@@ -397,7 +397,7 @@ And isn't it even more fascinating, that you constructed time by *indicating* an
 
 ## Limits of Computation
 
-Something magical things happens when a finite sequence of operations uncovers structure and reveals patterns previously unseen.
+Something magical happens when a finite sequence of operations uncovers structure and reveals patterns previously unseen.
 The algorithm---rigid in form yet generative in execution---is both alienating and beautiful.
 It follows rules without deviation, and in doing so, often surprises us.
 
@@ -409,11 +409,12 @@ Humans run them too---when sorting books, calculating tips, or solving puzzles.
 The "inputs" might be titles, prices, or rules; the "outputs" are the actions we take.
 This universality of the algorithmic perspective once inspired philosophical dreams of complete formalization.
 
-In the early 17th century, thinkers such as Leibniz's intellectual heirs and later in the 20th century formalists like Russell and Hilbert envisioned a universal logical system---a calculus ratiocinator---capable of resolving any mathematical statement by mechanical reasoning.
+In the early 17th century, thinkers such as Leibniz and later in the 20th century formalists like Russell and Hilbert envisioned a universal logical system---a *calculus ratiocinator*---capable of resolving any mathematical statement by mechanical reasoning.
 In *Grundzüge der theoretischen Logik* {cite}`hilbert:1928`, Hilbert and Ackermann raised the question now known as the *Entscheidungsproblem*: can there be an algorithm that decides the truth or falsity of any statement in first-order logic?
 
-Initially, it seemed plausible and it is known that this is true for *propositional logic* and the *Presburger arithmetic* (arithmetic of natural numbers with addition but not multiplication).
-But this vision encountered a decisive rupture in 1931, when Kurt Gödel, in *Über formal unentscheidbare Sätze der Principia Mathematica* {cite}`goedel:1931`, demonstrated two groundbreaking results:
+Initially, it seemed plausible that the answer is 'yes'.
+It was quickly known that algorithmic decidability works for *propositional logic* and the *Presburger arithmetic* (arithmetic of natural numbers with addition but not multiplication).
+But, in 1931, this vision encountered a decisive rupture when Kurt Gödel, in *Über formal unentscheidbare Sätze der Principia Mathematica* {cite}`goedel:1931`, demonstrated two groundbreaking results:
 
 1. **Incompleteness:** Any sufficiently expressive formal system (one that includes arithmetic) will contain true statements that are unprovable within that system.
 2. **Inconsistency barrier:** Such a system cannot prove its own consistency without contradiction.
@@ -423,32 +424,33 @@ Not all questions can be mechanized.
 
 Building on Gödel's insights, Alan Turing introduced the concept of the *Turing machine* as a model for what it means to compute.
 In his 1936 paper *On Computable Numbers* {cite}`turing:1936`, he formulated the *halting problem*: can a machine determine, for any given program and input, whether that program will eventually halt or run forever?
-
-Turing proved that no such machine exists.
+And then Turing proved that no such machine exists.
 More precisely, **there is no general algorithm that can decide whether an arbitrary program halts**.
-This result established the existence of *undecidable problems*: well-posed, meaningful questions that cannot be answered by any algorithm.
-This also implied that no physical or digital machine---being at most as powerful as a Turing machine---can compute everything.
+This result established the existence of *undecidable problems*: well-posed, meaningful questions that cannot be "answered" by any algorithm.
+Turing's result also implied that no physical or digital machine---being at most as powerful as a Turing machine---can compute everything.
 
 Further developments by Herbrand, Skolem, and others revealed more nuanced boundaries.
 In first-order predicate logic, semi-decidability prevails: if a formula is provable, there exists an algorithm that will eventually find a proof.
 But if it is unprovable, the algorithm may run forever {cite}`skolem:1970`.
 We can recognize truth by success, but not falsity by failure---a fundamental asymmetry in logic and computation.
 
-The limitations discovered by Gödel and Turing are not arbitrary---they arise from a deep structural feature of formal systems: their capacity to refer to themselves. Both Gödel's and Turing’s theorems exploit self-reference to reveal internal contradictions or undecidable conditions.
+The limitations discovered by Gödel and Turing are not arbitrary---they arise from a deep structural feature of formal systems: their capacity to be reflexiv---one can pose statements about the system in that system. Both Gödel's and Turing’s theorems exploit self-reference to reveal internal contradictions or undecidable conditions.
 Gödel constructs a formal statement that essentially says:
 
 >This statement is not provable within this system.
 
 If the system could prove it, it would be inconsistent. 
-If it cannot prove it, then the statement is true but unprovable—demonstrating incompleteness.
-This is a formalized version of the liar paradox: "This sentence is false".
+If it cannot prove it, then the statement is true but unprovable---demonstrating incompleteness.
+The trick is of course to build such a statement within the system.
+It is a formalized version of the liar paradox, i.e. "This sentence is false".
 It creates a loop within the system that the system cannot resolve from within.
 
-Similarly, Turing’s proof of the halting problem constructs a machine $\mathcal{H}$ that is supposed to determine whether any machine $\mathcal{T}$ halts on input $x$. But then he defines a machine $\mathcal{D}$ that feeds its own description to $\mathcal{H}$  and inverts the result. The result is a contradiction: if $\mathcal{H}$ says $\mathcal{D}$ halts, then $\mathcal{D}$ runs forever---and vice versa.
+Similarly, Turing's proof of the halting problem constructs a machine $\mathcal{H}$ that is supposed to determine whether any machine $\mathcal{T}$ halts on input $x$. But then he defines a machine $\mathcal{D}$ that feeds its own description to $\mathcal{H}$  and inverts the result. The result is a contradiction: if $\mathcal{H}$ says $\mathcal{D}$ halts, then $\mathcal{D}$ runs forever---and vice versa.
 Again, a loop of self-reference generates undecidability.
 
-This is exactly the kind of paradoxical *re-entry* that Spencer-Brown analyzes in *Laws of Form* {cite}`brown:1969`.
-In his system, the act of drawing a distinction is the beginning of form, but when a form refers to itself---when the distinction is applied to its own operation---paradox arises. This is not a flaw but a fundamental feature: the form re-enters the form.
+Interestingly, mathematicians carefully create systems that avoid circularity and paradoxes Spencer-Brown makes them central.
+With the introduction of the *re-entry* in *Laws of Form* {cite}`brown:1969` he formulated a system that is alien to many.
+In it, the act of drawing a distinction is the beginning of form, but when a form refers to itself---when the distinction is applied to its own operation---a paradox arises. This is not a flaw but a fundamental feature: the form re-enters the form.
 
 In this light, Gödel's and Turing's results are not merely technical limits but **deep logical consequences of systems that are powerful enough to observe themselves**.
 They are manifestations of what Spencer-Brown formalizes: the moment a system includes itself in its domain of discourse, it becomes incomplete, unstable, or paradoxical---but also potentially creative, open-ended, and dynamic.
@@ -456,31 +458,38 @@ They are manifestations of what Spencer-Brown formalizes: the moment a system in
 These discoveries mark a fissure in the modern epistemic project: the dream of full formalization collapses not by external failure, but through internal paradox.
 The algorithm, once a symbol of certainty, becomes a boundary marker---demarcating not only what can be computed, but what cannot even be known by formal means.
 
->The very techniques that reveal the limits of formal systems—self-reference, paradox, recursion—are the same structures that, in Spencer-Brown’s logic, generate time, form, and meaning. What formal logic excludes as paradox, Laws of Form embraces as the ground of creation.
+>The very techniques that reveal the limits of formal systems---self-reference, paradox, recursion---are the same structures that, in Spencer-Brown's thinking, generate time, form, and meaning. What formal logic excludes as paradox, Laws of Form embraces as the ground of creation.
 
 This transition, from the certainties of modern logic to the open-endedness of computation, anticipates the *postmodern condition*: an era not of clear foundations, but of recursive limits, undecidable structures, and generative paradoxes.
 Maybe Richard Rorty was right after all: the view of philosophy---including mathematics and physics---as the faculty that has traditionally aimed to uncover timeless, foundational truths---something like the "*mirror of nature*" (a metaphor he critiques in earlier work {cite}`rorty:1979`)---might have outlived its usefulness.
 We may should surrender the idea of discovering universal truths and instead focus on *cultural* and *linguistic creativity*.
-Instead of asking for truth we may want to ask for usefulness and communicative effectiveness.
+Instead of asking for *Truth* we may want to ask for usefulness and communicative effectiveness.
+Plato was wrong to call the Truth the Good.
+We moved from the *love of God* to the *love of Truth* to the *love of our inner-self*.
+Maybe its time to stop worshipping anything absolute or universal but to recognize that our language, our consciousness and our community is a contingent product of history---that, contrary to Hegel, nothing is necessarily as it is; everything could be different.
 
 There is no "God's-eye view" from which we can assess all perspectives neutrally.
 For Rorty, language---including mathematical, physical and computational language---is contingent.
 His confederate, Derrida, shuttered the philosophical tradtion by showing that what we take as *literal* or *proper* meanings are built upon layers of methophor that have become naturalized thought repetition {cite}`derrida:1974`.
-Terms like *substance*, *subject*, *truth*, and Heidegger's *Being* have roots in sensory or physical metaphors that we can not escape---we can not go outside or beyond language and it does not have a transparent link to a stable, pre-given reality.
+Terms like *substance*, *subject*, *truth*, and Heidegger's *Being* have roots in sensory or physical metaphors that we can not escape---we can not go outside or beyond language and language does not provide a transparent link to a stable, pre-given reality.
 
 But Metaphors are existential.
+It is in fact so existiantial that our own invention might only be successful if, by bringing forth our own metaphors, we are able to form a new world.
 By shaping how we conceptualize and interact with the world, metaphors play a crucial role in the formation of both personal identities and comprehensive philosophical systems.
 They have a foundational role in the realms of human experience.
-Therefore, we should take them seriously not because they refer to what Rorty calls "really real" but because they mean a lot to us.
+Therefore, we should take them seriously not because they refer to the "really real" but because they mean a lot to us.
+I mean I am a programmer, all of our language from *trees*, *heaps*, *objects* to *inheritance* and *composition* is methaphorical.
 
-This meaning is always mediated by a network of other signs and shaped by cultural, historical, and metaphorical context.
-It arises from *difference* within language itself---a word is not pointing directly to a thing but it gets is meaning by how it differs from other words.
+There meaning is always mediated by a network of other signs and shaped by cultural, historical, and metaphorical contexts.
+It arises from *difference* within language itself---a word is not pointing directly to a thing but it gets its meaning by how it differs from other words.
 There is no ultimate *signified*---words do not lead back to a final, real meaning but each sign points to another sign in a chian.
 It is difference and deferral, i.e. *différance*.
+Of course, this does not mean they are not grounded in something, e.g. sensory data or social interactions.
+But that this grounding is never final and never fixed.
 
 Thus truth is like a flicker---a momentary effect produced by a play of signs, none of which have fixed meaning.
 You might feel you "have" the truth for a moment---but that truth is never self-identical, never whole, and always open to being undone by the play of signs that brought it into being.
-Derrida *decontructs* the traditional view that language reflects reality; that words are label for things and truth is correspondence; that a statement is true if it matches reality.
+Here Derrida *decontructs* the traditional view that language reflects reality; that words are label for things and truth is correspondence; that a statement is true if it matches reality.
 
 Take the sentence: "There is a glass of water on the table".
 In ordinary terms, most people would say: This statement is true if there is, in fact, a glass of water on the table.
@@ -489,8 +498,11 @@ But Rorty rejects the correspondence theory as metaphysically confused.
 He doesn't say statements like this are not true---he says the notion of "truth as correspondence to reality" is unhelpful and unnecessary.
 The statement "There is a glass of water on the table" is true if our peers (or linguistic community) would agree that it is appropriate to assert it---given what we observe and how we talk.
 Truth is what it is good for us to believe (pragmatism).
+It is a property of statements which 
 Rorty does not deny that the glass of water exists.
 The sentence is true not because it corresponds to reality in some metaphysical way but because it’s useful, warranted, and coherent within our practices.
+
+>he assumption that truth, like the world, is “out there” is the legacy of a time when the world was seen as the creation of a being who possessed a language of his own. If we give up the attempt to make sense of the idea of such a nonhuman language, we will no longer be tempted to confuse the trivial statement that the world can cause us to hold a sentence to be true with the claim that the world itself, of its own accord, breaks up into sentence-shaped bits called "facts." -- Richard Rorty {cite}`rorty:1989`
 
 Similarily Derrida wouldn't deny that such a sentence can function meaningfully. But he would interpret the question not in terms of correspondence or even pragmatic success, but in terms of language’s internal play, difference, and deferred meaning.
 Even a simple sentence like this relies on (1) a shared system of signs and differences (what "glass", "water", "table" mean) and (2) a context (what table? where? when? how is "glass" being used?).
